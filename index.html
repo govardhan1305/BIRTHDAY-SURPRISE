@@ -1,34 +1,128 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A Surprise for CA Sahiba ❤️</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div id="floating"></div>
+const archery = document.getElementById("archery");
+const arrowGroup = document.getElementById("arrowGroup");
+const bowString = document.getElementById("bowString");
+const heart = document.getElementById("heart");
+const explosion = document.getElementById("explosion");
+const blackScreen = document.getElementById("blackScreen");
+const hint = document.getElementById("hint");
 
-  <main class="screen">
-    <p class="small-text">A little surprise is waiting for you</p>
+if (archery && arrowGroup && heart && explosion && blackScreen) {
+  let pulling = false;
+  let finished = false;
+  let pullDistance = 0;
+  let startX = 0;
 
-    <h1>For <span>CA Sahiba</span> ♡</h1>
-    <p id="hint">Drag the arrow towards the heart 💗</p>
+  archery.addEventListener("pointerdown", event => {
+    if (finished) return;
 
-    <div id="heart">♥</div>
+    pulling = true;
+    startX = event.clientX;
+    pullDistance = 0;
 
-    <button id="arrow" aria-label="Drag arrow to the heart">
-      ➜
-    </button>
+    archery.classList.add("pulling");
+    archery.setPointerCapture(event.pointerId);
+    event.preventDefault();
+  });
 
-    <div id="explosion"></div>
-  </main>
+  archery.addEventListener("pointermove", event => {
+    if (!pulling || finished) return;
 
-  <div id="blackScreen">
-    <p>A little something, just for you…</p>
-  </div>
+    // Pull the arrow backwards to the left.
+    pullDistance = Math.max(
+      0,
+      Math.min(75, startX - event.clientX)
+    );
 
-  <script src="script.js"></script>
-</body>
-</html>
+    arrowGroup.style.transform =
+      `translateX(${-pullDistance}px)`;
+
+    // String bends as the arrow is pulled back.
+    bowString.setAttribute(
+      "d",
+      `M 32 18 Q ${32 - pullDistance} 75 32 132`
+    );
+  });
+
+  archery.addEventListener("pointerup", () => {
+    if (!pulling || finished) return;
+
+    pulling = false;
+    archery.classList.remove("pulling");
+
+    // Release the arrow only after a meaningful pull.
+    if (pullDistance < 12) {
+      arrowGroup.style.transform = "";
+      bowString.setAttribute("d", "M 32 18 L 32 132");
+      return;
+    }
+
+    finished = true;
+    archery.style.pointerEvents = "none";
+
+    const heartRect = heart.getBoundingClientRect();
+    const archeryRect = archery.getBoundingClientRect();
+
+    const startCenterX =
+      archeryRect.left + 35;
+    const startCenterY =
+      archeryRect.top + archeryRect.height / 2;
+
+    const targetX =
+      heartRect.left + heartRect.width / 2;
+    const targetY =
+      heartRect.top + heartRect.height / 2;
+
+    const flightX = targetX - startCenterX;
+    const flightY = targetY - startCenterY;
+
+    arrowGroup.style.transition =
+      "transform 1s cubic-bezier(.2,.7,.2,1)";
+
+    arrowGroup.style.transform =
+      `translate(${flightX}px, ${flightY}px)`;
+
+    if (hint) {
+      hint.textContent = "A little magic, just for you…";
+    }
+
+    setTimeout(() => {
+      heart.style.animation = "none";
+      heart.style.transform = "scale(1.5)";
+      heart.style.opacity = "0";
+
+      const symbols = [
+        "♥", "♡", "🌸", "✿", "💗", "❀",
+        "✧", "♥", "🌸", "♡", "✦", "❀"
+      ];
+
+      symbols.forEach((symbol, index) => {
+        const particle = document.createElement("span");
+        particle.className = "particle";
+        particle.textContent = symbol;
+
+        const angle = index * Math.PI * 2 / symbols.length;
+        const distance = 90 + Math.random() * 140;
+
+        particle.style.setProperty(
+          "--x", `${Math.cos(angle) * distance}px`
+        );
+        particle.style.setProperty(
+          "--y", `${Math.sin(angle) * distance}px`
+        );
+
+        explosion.appendChild(particle);
+      });
+
+      archery.style.opacity = "0";
+    }, 1000);
+
+    setTimeout(() => {
+      blackScreen.classList.add("show");
+
+      setTimeout(() => {
+        window.location.href = "home.html";
+      }, 1800);
+    }, 1800);
+  });
+}

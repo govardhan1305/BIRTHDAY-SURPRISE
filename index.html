@@ -1,128 +1,300 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For CA Sahiba ❤️</title>
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Georgia,serif;background:#ffb5d2;color:#641a3d}
+button{font-family:inherit;cursor:pointer}
+.screen{min-height:100vh;min-height:100svh;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:24px;background:radial-gradient(circle,#ffeaf2,#ffc4dc 60%,#ff8fbb)}
+.eyebrow{font:11px Arial,sans-serif;letter-spacing:3px;text-transform:uppercase;color:#92345c}
+h1{font-size:clamp(38px,8vw,68px);font-weight:normal;margin:15px 0;color:#701b42}
+h1 span{color:#d52270;font-style:italic}
+.hint{font:14px Arial,sans-serif;color:#8b3156;line-height:1.6}
+#heart{font:clamp(100px,20vw,160px) Arial,sans-serif;color:#f12b78;text-shadow:0 0 25px #ff4e98,0 0 50px #ff80b3;animation:pulse 1s infinite;z-index:2}
+#floating{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.float{position:absolute;bottom:-50px;animation:floatUp linear forwards;opacity:0}
+#archery{position:fixed;right:15px;bottom:14px;width:125px;z-index:10;touch-action:none;cursor:grab;user-select:none}
+#archery svg{width:100%;overflow:visible}
+#arrowGroup{transform-origin:32px 83px}
+#archery small{display:block;font:11px Arial,sans-serif;color:#8b3156;text-align:center;white-space:nowrap}
+#explosion{position:fixed;inset:0;pointer-events:none;z-index:5}
+.particle{position:absolute;left:50%;top:50%;animation:burst 1.2s ease-out forwards;font-size:30px}
+#black{position:fixed;inset:0;background:#030205;color:#ffd7e7;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;visibility:hidden;opacity:0;transition:opacity .8s;z-index:20;font-size:clamp(22px,5vw,40px);font-style:italic}
+#black.show{visibility:visible;opacity:1}
+#website{display:none;min-height:100vh;background:radial-gradient(ellipse at top,#492033,#160b12 70%);color:#fff1f4;padding:28px 18px;text-align:center}
+#website .content{max-width:760px;margin:auto;padding:25px 0 50px}
+#website h1{color:#fff1f4;font-size:clamp(38px,8vw,65px)}
+#website h1 span{color:#f0a6bd}
+#website p{line-height:1.9;color:#ead5dd}
+.nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:28px 0}
+.btn{display:inline-block;border:1px solid #966078;border-radius:30px;padding:12px 19px;color:#fff1f4;background:#ffffff08;text-decoration:none;font:13px Arial,sans-serif}
+.btn.primary{background:#f0a6bd;color:#29101c;border-color:#f0a6bd}
+.page{display:none;max-width:650px;margin:35px auto;padding:25px;background:#ffffff08;border:1px solid #65334b;border-radius:16px}
+.page.active{display:block}
+.page h2{font-weight:normal;font-size:32px;color:#f0a6bd}
+.page p{line-height:1.9}
+.photo-spaces{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:20px}
+.photo-space{width:130px;height:170px;border:1px dashed #c77899;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#f0a6bd;font-size:14px}
+.signature{font-style:italic;color:#c9aeb9!important;margin-top:35px}
+@keyframes pulse{50%{transform:scale(1.14)}}
+@keyframes floatUp{0%{transform:translateY(0) rotate(0);opacity:0}15%{opacity:.8}100%{transform:translateY(-115vh) rotate(250deg);opacity:0}}
+@keyframes burst{0%{opacity:1;transform:translate(-50%,-50%) scale(.5)}100%{opacity:0;transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) rotate(200deg) scale(1.5)}}
+@media(max-width:600px){#archery{width:105px;right:8px;bottom:8px}.screen{padding:15px}.eyebrow{letter-spacing:2px}}
+</style>
+</head>
+
+<body>
+
+<div id="floating"></div>
+
+<!-- OPENING ANIMATION -->
+<section class="screen" id="intro">
+  <p class="eyebrow">A little surprise is waiting for you</p>
+  <h1>For <span>CA Sahiba</span> ♡</h1>
+  <p class="hint" id="hint">Pull back the arrow and release it 💗</p>
+  <div id="heart">♥</div>
+
+  <div id="archery">
+    <svg viewBox="0 0 150 170">
+      <path id="bowString" d="M32 18 L32 148" stroke="#fff5fa" stroke-width="2" fill="none"/>
+      <path d="M32 18 Q112 83 32 148" stroke="#9b2859" stroke-width="10" stroke-linecap="round" fill="none"/>
+      <path d="M32 18 Q112 83 32 148" stroke="#ffd8e7" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <g id="arrowGroup">
+        <line x1="25" y1="83" x2="130" y2="83" stroke="#812246" stroke-width="4" stroke-linecap="round"/>
+        <path d="M145 83 L126 74 L131 83 L126 92 Z" fill="#d5216b"/>
+        <path d="M35 83 L20 70 L25 83 Z" fill="#fff0f7"/>
+        <path d="M35 83 L20 96 L25 83 Z" fill="#ff4f91"/>
+      </g>
+    </svg>
+    <small>Pull back & release 🏹</small>
+  </div>
+
+  <div id="explosion"></div>
+</section>
+
+<div id="black"><span>A little something, just for you…</span></div>
+
+<!-- MAIN WEBSITE -->
+<main id="website">
+  <div class="content">
+    <p class="eyebrow">Made with love, just for you</p>
+    <h1>Happy Birthday,<br><span>CA Sahiba</span> ♡</h1>
+    <p>Some people make ordinary days feel special.<br>This little corner of the internet is just for you.</p>
+
+    <nav class="nav">
+      <button class="btn primary" onclick="showPage('letter')">Open your letter</button>
+      <button class="btn" onclick="showPage('memories')">Little memories</button>
+      <button class="btn" onclick="showPage('reasons')">Why you're special</button>
+      <button class="btn" onclick="showPage('openwhen')">Open when…</button>
+      <button class="btn" onclick="showPage('unsaid')">Things I never said</button>
+      <button class="btn" onclick="showPage('final')">Final surprise ♡</button>
+    </nav>
+
+    <section class="page active" id="welcome">
+      <h2>A little world for you</h2>
+      <p>Take your time, explore, and enjoy your little surprise. I hope this brings a smile to your face.</p>
+    </section>
+
+    <section class="page" id="letter">
+      <h2>Dear Sahiba, ♡</h2>
+      <p>Happy birthday to someone who means more to me than words can properly explain.</p>
+      <p>I hope this new year brings you happiness, peace, success, and beautiful surprises. Keep believing in yourself and chasing your dreams, especially your CA dreams. You are capable of so much more than you know.</p>
+      <p>You deserve genuine happiness, kind people, and countless reasons to smile. I hope today reminds you how special you are.</p>
+      <p>Happy birthday, CA Sahiba. Keep shining. ❤️</p>
+      <button class="btn" onclick="showPage('welcome')">← Back</button>
+    </section>
+
+    <section class="page" id="memories">
+      <h2>Little memories ♡</h2>
+      <p>Every lovely story is made of little moments.</p>
+      <div class="photo-spaces">
+        <div class="photo-space">Your photo 1</div>
+        <div class="photo-space">Your photo 2</div>
+        <div class="photo-space">Your photo 3</div>
+      </div>
+      <p>Replace these spaces with your favourite photos when you're ready.</p>
+      <button class="btn" onclick="showPage('welcome')">← Back</button>
+    </section>
+
+    <section class="page" id="reasons">
+      <h2>Why you're special ♡</h2>
+      <p id="reasonText">There is something lovely about the way you are simply yourself.</p>
+      <button class="btn primary" onclick="nextReason()">One more reason ♡</button>
+      <br><br><button class="btn" onclick="showPage('welcome')">← Back</button>
+    </section>
+
+    <section class="page" id="openwhen">
+      <h2>Open when… 💌</h2>
+      <div class="nav">
+        <button class="btn" onclick="openLetter('sad')">When you feel low</button>
+        <button class="btn" onclick="openLetter('doubt')">When you doubt yourself</button>
+        <button class="btn" onclick="openLetter('tired')">When you're tired</button>
+      </div>
+      <p id="openMessage">Choose a little letter above.</p>
+      <button class="btn" onclick="showPage('welcome')">← Back</button>
+    </section>
+
+    <section class="page" id="unsaid">
+      <h2>Things I never said…</h2>
+      <p>Sometimes, the simplest truth is that someone can matter to you in ways you find difficult to explain. I hope you always know that I genuinely wish happiness and beautiful things for you.</p>
+      <p>No pressure, no expectations — just something honest from my heart. ♡</p>
+      <button class="btn" onclick="showPage('welcome')">← Back</button>
+    </section>
+
+    <section class="page" id="final">
+      <h2>One last thing… ✨</h2>
+      <p>May your dreams come true, may your hard work turn into success, and may you always find reasons to smile.</p>
+      <button class="btn primary" onclick="birthdayWish()">Tap for your birthday wish ♡</button>
+      <p id="wish"></p>
+      <button class="btn" onclick="showPage('welcome')">← Back</button>
+    </section>
+
+    <p class="signature">With lots of warmth, just for you ♡</p>
+  </div>
+</main>
+
+<script>
+// Floating hearts and flowers
+const floating = document.getElementById("floating");
+const symbols = ["♥","♡","🌸","✿","❀","💗"];
+
+function makeFloat(){
+  const el = document.createElement("span");
+  el.className = "float";
+  el.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+  el.style.left = Math.random()*100 + "vw";
+  el.style.fontSize = 16 + Math.random()*25 + "px";
+  el.style.color = ["#ed2875","#ffffff","#c52a68"][Math.floor(Math.random()*3)];
+  el.style.animationDuration = 5 + Math.random()*5 + "s";
+  floating.appendChild(el);
+  setTimeout(()=>el.remove(),11000);
+}
+for(let i=0;i<15;i++) setTimeout(makeFloat,i*250);
+setInterval(makeFloat,400);
+
+// Bow and arrow interaction
 const archery = document.getElementById("archery");
 const arrowGroup = document.getElementById("arrowGroup");
 const bowString = document.getElementById("bowString");
 const heart = document.getElementById("heart");
 const explosion = document.getElementById("explosion");
-const blackScreen = document.getElementById("blackScreen");
+const blackScreen = document.getElementById("black");
 const hint = document.getElementById("hint");
 
-if (archery && arrowGroup && heart && explosion && blackScreen) {
-  let pulling = false;
-  let finished = false;
-  let pullDistance = 0;
-  let startX = 0;
+let pulling = false;
+let finished = false;
+let startX = 0;
+let pull = 0;
 
-  archery.addEventListener("pointerdown", event => {
-    if (finished) return;
+archery.addEventListener("pointerdown",e=>{
+  if(finished) return;
+  pulling = true;
+  startX = e.clientX;
+  pull = 0;
+  archery.setPointerCapture(e.pointerId);
+  e.preventDefault();
+});
 
-    pulling = true;
-    startX = event.clientX;
-    pullDistance = 0;
+archery.addEventListener("pointermove",e=>{
+  if(!pulling || finished) return;
+  pull = Math.max(0,Math.min(65,startX-e.clientX));
+  arrowGroup.style.transform = `translateX(${-pull}px)`;
+  bowString.setAttribute("d",`M32 18 Q${32-pull} 83 32 148`);
+});
 
-    archery.classList.add("pulling");
-    archery.setPointerCapture(event.pointerId);
-    event.preventDefault();
-  });
+archery.addEventListener("pointerup",()=>{
+  if(!pulling || finished) return;
+  pulling = false;
 
-  archery.addEventListener("pointermove", event => {
-    if (!pulling || finished) return;
+  if(pull < 12){
+    arrowGroup.style.transform = "";
+    bowString.setAttribute("d","M32 18 L32 148");
+    return;
+  }
 
-    // Pull the arrow backwards to the left.
-    pullDistance = Math.max(
-      0,
-      Math.min(75, startX - event.clientX)
-    );
+  finished = true;
+  archery.style.pointerEvents = "none";
 
-    arrowGroup.style.transform =
-      `translateX(${-pullDistance}px)`;
+  const hr = heart.getBoundingClientRect();
+  const ar = archery.getBoundingClientRect();
+  const dx = hr.left + hr.width/2 - (ar.left+35);
+  const dy = hr.top + hr.height/2 - (ar.top+65);
+  const angle = Math.atan2(dy,dx)*180/Math.PI;
 
-    // String bends as the arrow is pulled back.
-    bowString.setAttribute(
-      "d",
-      `M 32 18 Q ${32 - pullDistance} 75 32 132`
-    );
-  });
+  arrowGroup.style.transition = "transform 1s cubic-bezier(.2,.7,.2,1)";
+  arrowGroup.style.transform = `translate(${dx}px,${dy}px) rotate(${angle}deg)`;
+  hint.textContent = "A little magic, just for you…";
 
-  archery.addEventListener("pointerup", () => {
-    if (!pulling || finished) return;
+  setTimeout(()=>{
+    heart.style.animation = "none";
+    heart.style.opacity = "0";
 
-    pulling = false;
-    archery.classList.remove("pulling");
+    const burst = ["♥","♡","🌸","✿","💗","❀","✧","♥","🌸","♡","✦","❀","♥","💗","✿","♡"];
+    burst.forEach((s,i)=>{
+      const p = document.createElement("span");
+      p.className = "particle";
+      p.textContent = s;
+      const a = i*Math.PI*2/burst.length;
+      const d = 90+Math.random()*150;
+      p.style.setProperty("--x",Math.cos(a)*d+"px");
+      p.style.setProperty("--y",Math.sin(a)*d+"px");
+      explosion.appendChild(p);
+    });
+    archery.style.opacity = "0";
+  },1000);
 
-    // Release the arrow only after a meaningful pull.
-    if (pullDistance < 12) {
-      arrowGroup.style.transform = "";
-      bowString.setAttribute("d", "M 32 18 L 32 132");
-      return;
-    }
+  setTimeout(()=>{
+    blackScreen.classList.add("show");
+    setTimeout(()=>{
+      document.getElementById("intro").style.display = "none";
+      floating.style.display = "none";
+      blackScreen.classList.remove("show");
+      document.getElementById("website").style.display = "block";
+      window.scrollTo(0,0);
+    },1600);
+  },1800);
+});
 
-    finished = true;
-    archery.style.pointerEvents = "none";
-
-    const heartRect = heart.getBoundingClientRect();
-    const archeryRect = archery.getBoundingClientRect();
-
-    const startCenterX =
-      archeryRect.left + 35;
-    const startCenterY =
-      archeryRect.top + archeryRect.height / 2;
-
-    const targetX =
-      heartRect.left + heartRect.width / 2;
-    const targetY =
-      heartRect.top + heartRect.height / 2;
-
-    const flightX = targetX - startCenterX;
-    const flightY = targetY - startCenterY;
-
-    arrowGroup.style.transition =
-      "transform 1s cubic-bezier(.2,.7,.2,1)";
-
-    arrowGroup.style.transform =
-      `translate(${flightX}px, ${flightY}px)`;
-
-    if (hint) {
-      hint.textContent = "A little magic, just for you…";
-    }
-
-    setTimeout(() => {
-      heart.style.animation = "none";
-      heart.style.transform = "scale(1.5)";
-      heart.style.opacity = "0";
-
-      const symbols = [
-        "♥", "♡", "🌸", "✿", "💗", "❀",
-        "✧", "♥", "🌸", "♡", "✦", "❀"
-      ];
-
-      symbols.forEach((symbol, index) => {
-        const particle = document.createElement("span");
-        particle.className = "particle";
-        particle.textContent = symbol;
-
-        const angle = index * Math.PI * 2 / symbols.length;
-        const distance = 90 + Math.random() * 140;
-
-        particle.style.setProperty(
-          "--x", `${Math.cos(angle) * distance}px`
-        );
-        particle.style.setProperty(
-          "--y", `${Math.sin(angle) * distance}px`
-        );
-
-        explosion.appendChild(particle);
-      });
-
-      archery.style.opacity = "0";
-    }, 1000);
-
-    setTimeout(() => {
-      blackScreen.classList.add("show");
-
-      setTimeout(() => {
-        window.location.href = "home.html";
-      }, 1800);
-    }, 1800);
-  });
+// Simple page navigation without leaving this single HTML file
+function showPage(id){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  const target = document.getElementById(id);
+  if(target) target.classList.add("active");
+  window.scrollTo({top:0,behavior:"smooth"});
 }
+
+const reasons = [
+  "Your smile can make an ordinary moment feel special. ♡",
+  "Your dreams and the effort you put into them deserve admiration.",
+  "You have your own way of making people care about you.",
+  "You deserve happiness that feels genuine and peaceful.",
+  "Simply being yourself is one of the things that makes you special."
+];
+let reasonIndex = 0;
+
+function nextReason(){
+  reasonIndex = (reasonIndex+1)%reasons.length;
+  document.getElementById("reasonText").textContent = reasons[reasonIndex];
+}
+
+function openLetter(type){
+  const messages = {
+    sad: "If today feels heavy, take a breath. You don't have to solve everything at once. You deserve gentleness, too. ❤️",
+    doubt: "Please believe in yourself. Your hard work matters, and one difficult day cannot define your future. Keep going, future CA. ♡",
+    tired: "Rest for a while. You are allowed to pause, recharge, and start again. Your worth is not measured by how much you do."
+  };
+  document.getElementById("openMessage").textContent = messages[type];
+}
+
+function birthdayWish(){
+  document.getElementById("wish").textContent =
+    "Happy Birthday, CA Sahiba! May your year be full of love, peace, success, and beautiful surprises. Keep shining. ❤️";
+}
+</script>
+</body>
+</html>
